@@ -5,7 +5,7 @@ from passlib.context import CryptContext
 from fastapi import HTTPException
 from app.core.config import settings
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["sha256_crypt"], deprecated="auto")
 
 def create_access_token(
     subject: Union[str, Any], expires_delta: timedelta = None
