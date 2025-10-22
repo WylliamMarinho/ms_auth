@@ -1,16 +1,14 @@
-#ms_auth.app.api.endpoints/auth.py
-
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from app.schemas.token import Token
 from app.core.security import create_access_token, verify_password, decode_token
-from ...core.config import settings
+
 
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/login")
 
 # Simulação de um banco de dados de usuários
-# Em um projeto real, você usaria um banco de dados de verdade
+# Em um projeto real, usaria um banco de dados de verdade
 USERS_DB = {
     "admin": {
         "username": "admin",
